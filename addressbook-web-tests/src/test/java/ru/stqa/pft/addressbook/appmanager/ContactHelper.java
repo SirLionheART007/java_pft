@@ -27,4 +27,12 @@ public class ContactHelper extends HelperBase {
     type(By.name("home"), contactData.getHome());
     type(By.name("email"), contactData.getEmail());
   }
+
+  public void initContactModification() {
+    click(By.xpath("//img[@alt='Edit']"));
+  }
+
+  public void submitContactModification() {
+    click(By.name("update"));
+  }
 }
