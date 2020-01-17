@@ -3,23 +3,21 @@ package ru.stqa.pft.addressbook.tests;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import ru.stqa.pft.addressbook.model.ContactData;
-import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 public class ContactCreationTest extends TestBase {
 
 
-  @Test(enabled = false)
+  @Test
   public void testContactCreation() throws Exception {
 
-    List<ContactData> before = app.getContactHelper().getContactList();
+    List<ContactData> before = app.contact().list();
     System.out.println(before);
     ContactData contact = new ContactData("Test", null, "Tester", null, null, null, null, null, null, "test1");
-    app.getContactHelper().createContact(contact, true);
-    List<ContactData> after = app.getContactHelper().getContactList();
+    app.contact().create(contact, true);
+    List<ContactData> after = app.contact().list();
     System.out.println(after);
     Assert.assertEquals(after.size(), before.size() + 1);
 
