@@ -6,10 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
-import ru.stqa.pft.addressbook.model.GroupData;
-
-import java.util.ArrayList;
+import ru.stqa.pft.addressbook.model.Contacts;
 import java.util.List;
+
 
 
 public class ContactHelper extends HelperBase {
@@ -50,8 +49,8 @@ public class ContactHelper extends HelperBase {
     click(By.name("update"));
   }
 
-  public void selectContact(int index) {
-    wd.findElements(By.name("selected[]")).get(index).click();
+  public void selectContactById(int id) {
+    wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
   }
 
   public void deleteSelectedContact() {
@@ -78,16 +77,17 @@ public class ContactHelper extends HelperBase {
     returnToContactPage();
   }
 
-  public void modify(int index, ContactData contact) {
-    selectContact(index);
+  public void modify(ContactData contact) {
+    selectContactById(contact.getId());
     initContactModification();
     fillContactForm(contact, false);
     submitContactModification();
     returnToContactPage();
   }
 
-  public void delete(int index) {
-    selectContact(index);
+
+  public void delete(ContactData contact) {
+    selectContactById(contact.getId());
     deleteSelectedContact();
     acceptAlert();
   }
@@ -96,16 +96,20 @@ public class ContactHelper extends HelperBase {
     return isElementPresent(By.name("selected[]"));
   }
 
-  public List<ContactData> list() {
-    List<ContactData> contacts = new ArrayList<ContactData>();
+
+
+  public Contacts all() {
+    Contacts contacts = new Contacts();
     List<WebElement> elements =wd.findElements(By.name("entry"));
     for (WebElement element : elements) {
       List<WebElement> El = element.findElements(By.tagName("td"));
       String firstname = El.get(2).getText();
       String lastname = El.get(1).getText();
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-      ContactData contact = new ContactData(id, firstname, null, lastname, null, null, null, null, null, null, null);
-      contacts.add(contact);
+      contacts.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname));
     }
-    return contacts;  }
+    return contacts;
+  }
+
+
 }
