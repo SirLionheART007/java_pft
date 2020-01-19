@@ -22,8 +22,6 @@ public class Contacts extends ForwardingSet<ContactData> {
     return delegate;
   }
 
-
-
   public Contacts withAdded(ContactData contact) {
     Contacts contacts = new Contacts(this);
     contacts.add(contact);
@@ -35,5 +33,4 @@ public class Contacts extends ForwardingSet<ContactData> {
     contacts.remove(contact);
     return contacts;
   }
-
 }

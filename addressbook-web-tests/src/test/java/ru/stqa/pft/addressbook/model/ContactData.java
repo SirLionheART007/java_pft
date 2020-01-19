@@ -14,26 +14,20 @@ public class ContactData {
   private String email;
   private String group;
   private int id = Integer.MAX_VALUE;
-  private boolean creation;
 
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     ContactData that = (ContactData) o;
-    return id == that.id &&
-            Objects.equals(firstname, that.firstname) &&
-            Objects.equals(lastname, that.lastname);
+    return getId() == that.getId() &&
+            Objects.equals(getFirstname(), that.getFirstname()) &&
+            Objects.equals(getLastname(), that.getLastname());
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstname, lastname, id);
-  }
-
-  public ContactData withCreation(boolean creation) {
-    this.creation = creation;
-    return this;
+    return Objects.hash(getFirstname(), getLastname(), getId());
   }
 
   public ContactData withId(int id) {
