@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.stqa.pft.addressbook.tests.ContactModificationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-01-19T18:49:24" hostname="DESKTOP-B85ICVG" time="31.726">
+  <properties/>
+  <testcase name="testContactModification" classname="ru.stqa.pft.addressbook.tests.ContactModificationTests" time="31.726"/>
+  <system-out><![CDATA[[ContactData{firstname='Test', lastname='Tester', id=44}]
+[ContactData{firstname='Test', lastname='Tester', id=44}]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
