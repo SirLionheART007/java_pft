@@ -29,13 +29,4 @@ public class ContactCreationTest extends TestBase {
             before.withAdded(contact.withId(after.stream().mapToInt(ContactData::getId).max().getAsInt()))));
   }
 
-  @Test
-  public void testCurrentDir() {
-    File currentDir = new File(".");
-    System.out.println(currentDir.getAbsolutePath());
-    File photo = new File("src/test/resources/IMG_3708.JPG");
-    System.out.println(photo.getAbsolutePath());
-    System.out.println(photo.exists());
-  }
-
 }
