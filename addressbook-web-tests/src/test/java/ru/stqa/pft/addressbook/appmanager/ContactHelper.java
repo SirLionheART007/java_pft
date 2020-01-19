@@ -7,8 +7,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
-import ru.stqa.pft.addressbook.model.Groups;
-
 import java.util.List;
 
 
@@ -37,6 +35,8 @@ public class ContactHelper extends HelperBase {
     type(By.name("mobile"), contactData.getMobile());
     type(By.name("work"), contactData.getWork());
     type(By.name("email"), contactData.getEmail());
+    type(By.name("email2"), contactData.getEmail2());
+    type(By.name("email3"), contactData.getEmail3());
 
     if (creation) {
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
@@ -119,14 +119,18 @@ public class ContactHelper extends HelperBase {
       String firstname = El.get(2).getText();
       String lastname = El.get(1).getText();
       String allPhones = El.get(5).getText();
+      String allEmails = El.get(4).getText();
+      String address = El.get(3).getText();
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-      contactCache.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname).withAllPhones(allPhones));
+      contactCache.add(new ContactData()
+              .withId(id).withFirstname(firstname).withLastname(lastname)
+              .withAllPhones(allPhones).withAddress(address).withAllEmails(allEmails));
     }
     return new Contacts(contactCache);
   }
 
 
-  public int Count() {
+  public int count() {
     return wd.findElements(By.name("selected[]")).size();
   }
 
@@ -144,7 +148,7 @@ public class ContactHelper extends HelperBase {
 
     wd.navigate().back();
     return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname).withHome(home).withMobile(mobile).withWork(work)
-            .withAddress(address).withEmail(email);
+            .withAddress(address).withEmail(email).withEmail2(email2).withEmail3(email3);
   }
 
   public void initContactModificationById(int id) {
