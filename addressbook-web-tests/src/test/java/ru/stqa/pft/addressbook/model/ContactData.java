@@ -14,6 +14,7 @@ public class ContactData {
   private String email;
   private String group;
   private int id = Integer.MAX_VALUE;
+  private boolean creation;
 
   @Override
   public boolean equals(Object o) {
@@ -30,6 +31,10 @@ public class ContactData {
     return Objects.hash(firstname, lastname, id);
   }
 
+  public ContactData withCreation(boolean creation) {
+    this.creation = creation;
+    return this;
+  }
 
   public ContactData withId(int id) {
     this.id = id;

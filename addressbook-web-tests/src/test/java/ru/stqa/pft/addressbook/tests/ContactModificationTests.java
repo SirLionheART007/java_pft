@@ -28,10 +28,10 @@ public class ContactModificationTests extends TestBase {
     System.out.println(before);
     ContactData modifiedContact = before.iterator().next();
     ContactData contact = new ContactData().
-            withId(modifiedContact.getId()).withFirstname("Test").withLastname("Tester").withCompany("testovaya");
+            withId(modifiedContact.getId()).withFirstname("Test").withLastname("Tester").withCompany("testovaya").withCreation(false);
     app.contact().modify(contact);
-    assertThat(app.group().count(), equalTo(before.size()));
     Contacts after = app.contact().all();
+    assertEquals(after.size(), before.size());
     System.out.println(after);
     assertThat(after, equalTo(before));
 
