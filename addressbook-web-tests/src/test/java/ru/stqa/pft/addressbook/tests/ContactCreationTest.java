@@ -1,15 +1,17 @@
 package ru.stqa.pft.addressbook.tests;
 
+import com.thoughtworks.xstream.XStream;
 import org.testng.annotations.*;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
 
 
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -18,21 +20,35 @@ public class ContactCreationTest extends TestBase {
 
 
   @DataProvider
-  public Iterator<Object[]> validContacts() {
+  public Iterator<Object[]> validContactsAsCsv() throws IOException {
     List<Object[]> list = new ArrayList<Object[]>();
-    list.add(new Object[] {new ContactData().withFirstname("tester").withLastname("testerov1").withGroup("test1")
-            .withHome("111").withMobile("222").withWork("333")
-            .withEmail("artem@artem.ru").withEmail2("java@java.ru").withEmail3("java1@java.ru")});
-    list.add(new Object[] {new ContactData().withFirstname("tester2").withLastname("testerov2").withGroup("test1")
-            .withHome("111").withMobile("222").withWork("333")
-            .withEmail("artem@artem.ru").withEmail2("java@java.ru").withEmail3("java1@java.ru")});
-    list.add(new Object[] {new ContactData().withFirstname("tester3").withLastname("testerov3").withGroup("test1")
-            .withHome("111").withMobile("222").withWork("333")
-            .withEmail("artem@artem.ru").withEmail2("java@java.ru").withEmail3("java1@java.ru")});
+    BufferedReader reader = new BufferedReader(new FileReader(new File("C:/Tests/java_pft/addressbook-web-tests/src/test/resources/contacts.csv")));
+    String line = reader.readLine();
+    while (line != null) {
+      String[] split = line.split(";");
+      list.add(new Object[] {new ContactData().withFirstname(split[0]).withLastname(split[1]).withAddress(split[2]).withGroup(split[3])});
+      line = reader.readLine();
+    }
     return list.iterator();
   }
 
-  @Test(dataProvider = "validContacts")
+   @DataProvider
+  public Iterator<Object[]> validContactsAsXml() throws IOException {
+    List<Object[]> list = new ArrayList<Object[]>();
+    BufferedReader reader = new BufferedReader(new FileReader(new File("C:/Tests/java_pft/addressbook-web-tests/src/test/resources/contacts.xml")));
+    String xml = "";
+    String line = reader.readLine();
+    while (line != null) {
+      xml += line;
+      line = reader.readLine();
+    }
+    XStream xstream = new XStream();
+    xstream.processAnnotations(ContactData.class);
+    List<ContactData> contacts = (List<ContactData>) xstream.fromXML(xml);
+    return contacts.stream().map((c) -> new Object[]{c}).collect(Collectors.toList()).iterator();
+  }
+
+  @Test(dataProvider = "validContactsAsXml")
   public void testContactCreation(ContactData contact) throws Exception {
 
     Contacts before = app.contact().all();
