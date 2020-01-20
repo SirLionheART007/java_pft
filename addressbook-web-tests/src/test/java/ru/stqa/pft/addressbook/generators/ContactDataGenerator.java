@@ -33,7 +33,7 @@ public class ContactDataGenerator {
   }
 
   private void run() throws IOException {
-    List<ContactData> contacts = generateContacs(count);
+    List<ContactData> contacts = generateContacts(count);
     save(contacts, new File(file));
   }
 
@@ -49,7 +49,7 @@ public class ContactDataGenerator {
     writer.close();
   }
 
-  private List<ContactData> generateContacs(int count) {
+  private List<ContactData> generateContacts(int count) {
     List<ContactData> contacts = new ArrayList<ContactData>();
     for (int i = 0; i < count; i++) {
       contacts.add(new ContactData().withFirstname(String.format("Test %s", i))
