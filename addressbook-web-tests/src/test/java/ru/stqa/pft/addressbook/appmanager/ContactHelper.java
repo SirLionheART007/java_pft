@@ -42,7 +42,7 @@ public class ContactHelper extends HelperBase {
     }
   }
 
-  public void initContactModification() {
+  public void initContactModification(int index) {
     click(By.xpath("//img[@alt='Edit']"));
   }
 
