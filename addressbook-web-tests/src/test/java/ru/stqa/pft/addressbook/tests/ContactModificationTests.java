@@ -25,11 +25,10 @@ public class ContactModificationTests extends TestBase {
   @Test
   public void testContactModification() {
     Contacts before = app.contact().all();
-    int index = before.size() - 1;
     ContactData modifiedContact = before.iterator().next();
     ContactData contact = new ContactData().
             withId(modifiedContact.getId()).withFirstname("Test").withLastname("Tester").withCompany("testovaya");
-    app.contact().modify(index, contact);
+    app.contact().modify(contact);
     Contacts after = app.contact().all();
     assertEquals(after.size(), before.size());
     System.out.println(after);
