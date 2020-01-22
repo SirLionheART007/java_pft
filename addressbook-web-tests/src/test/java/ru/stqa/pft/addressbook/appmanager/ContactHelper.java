@@ -45,6 +45,12 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
   }
 
+  public void initContactModificationById(int id) {
+    WebElement checkbox = wd.findElement(By.cssSelector("input[value='" + id + "']"));
+    WebElement row = checkbox.findElement(By.xpath("./../.."));
+    row.findElement(By.cssSelector(("img[title = 'Edit']"))).click();
+  }
+
   public void submitContactModification() {
     click(By.name("update"));
   }
@@ -78,7 +84,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void modify(ContactData contact) {
-    initContactModification();
+    initContactModificationById(contact.getId());
     fillContactForm(contact, false);
     submitContactModification();
     returnToContactPage();
@@ -99,7 +105,7 @@ public class ContactHelper extends HelperBase {
 
   public Contacts all() {
     Contacts contacts = new Contacts();
-    List<WebElement> elements =wd.findElements(By.name("entry"));
+    List<WebElement> elements = wd.findElements(By.name("entry"));
     for (WebElement element : elements) {
       List<WebElement> El = element.findElements(By.tagName("td"));
       String firstname = El.get(2).getText();
