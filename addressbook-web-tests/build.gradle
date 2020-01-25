@@ -13,10 +13,14 @@ dependencies {
     implementation 'com.thoughtworks.xstream:xstream:1.4.11.1'
     implementation 'org.immutables:gson:2.8.3'
 }
-
 test {
-    useTestNG()
+    useTestNG{
+        suites 'C:/Tests/java_pft/addressbook-web-tests/src/test/resourses/testng-groups.xml'
+    }
 }
+
+
+
 
 task testGroups(type: Test) {
     useTestNG {

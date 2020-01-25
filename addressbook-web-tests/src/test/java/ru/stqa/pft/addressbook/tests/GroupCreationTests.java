@@ -52,7 +52,8 @@ public class GroupCreationTests extends TestBase {
   @DataProvider
   public Iterator<Object[]> validGroupsAsJson() throws IOException {
     List<Object[]> list = new ArrayList<Object[]>();
-    try(BufferedReader reader = new BufferedReader(new FileReader(new File("C:/Tests/java_pft/addressbook-web-tests/src/test/resources/groups.json")))) {
+    System.out.println(new File(".").getAbsoluteFile());
+    try(BufferedReader reader = new BufferedReader(new FileReader(new File("C:\\Tests\\java_pft\\addressbook-web-tests\\src\\test\\resources\\groups.json")))) {
       String json = "";
       String line = reader.readLine();
       while (line != null) {
