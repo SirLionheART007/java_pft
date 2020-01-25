@@ -7,8 +7,12 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
-import java.util.List;
+import ru.stqa.pft.addressbook.tests.ContactInfoTest;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class ContactHelper extends HelperBase {
@@ -121,10 +125,15 @@ public class ContactHelper extends HelperBase {
       String allPhones = El.get(5).getText();
       String allEmails = El.get(4).getText();
       String address = El.get(3).getText();
+      String fullInfo = Arrays.asList(El.get(2).getText(), El.get(1).getText(), El.get(3).getText(), El.get(5).getText() + "\n", El.get(4).getText())
+              .stream().filter((s) -> ! s.equals(""))
+              .collect(Collectors.joining("\n"));
+
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
       contactCache.add(new ContactData()
               .withId(id).withFirstname(firstname).withLastname(lastname)
-              .withAllPhones(allPhones).withAddress(address).withAllEmails(allEmails));
+              .withAllPhones(allPhones).withAddress(address).withAllEmails(allEmails).withFullInfo(fullInfo));
+      //contactCache.add(new ContactData().withId(id).withFullInfo(fullInfo));
     }
     return new Contacts(contactCache);
   }
