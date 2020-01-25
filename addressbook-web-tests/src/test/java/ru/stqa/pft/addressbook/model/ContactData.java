@@ -19,6 +19,8 @@ public class ContactData {
   private String company;
   @Expose
   private String address;
+  @Expose
+  private String fullInfo;
   private String home;
   private String mobile;
   private String work;
@@ -120,6 +122,11 @@ public class ContactData {
     return this;
   }
 
+  public ContactData withFullInfo(String fullInfo) {
+    this.fullInfo = fullInfo;
+    return this;
+  }
+
   public int getId() {
     return id;
   }
@@ -192,6 +199,10 @@ public class ContactData {
 
   public File getPhoto() {
     return photo;
+  }
+
+  public String getFullInfo() {
+    return fullInfo;
   }
 
   @Override
