@@ -4,12 +4,15 @@ package ru.stqa.pft.addressbook.tests;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.xstream.XStream;
-import org.testng.annotations.*;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -23,7 +26,7 @@ public class GroupCreationTests extends TestBase {
   @DataProvider
   public Iterator<Object[]> validGroupsAsCsv() throws IOException {
     List<Object[]> list = new ArrayList<Object[]>();
-    BufferedReader reader = new BufferedReader(new FileReader(new File("C:/Tests/java_pft/addressbook-web-tests/src/test/resources/groups.csv")));
+    BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.csv")));
     String line = reader.readLine();
     while (line != null) {
       String[] split = line.split(";");
@@ -36,7 +39,7 @@ public class GroupCreationTests extends TestBase {
   @DataProvider
   public Iterator<Object[]> validGroupsAsXml() throws IOException {
     List<Object[]> list = new ArrayList<Object[]>();
-    BufferedReader reader = new BufferedReader(new FileReader(new File("C:/Tests/java_pft/addressbook-web-tests/src/test/resources/groups.xml")));
+    BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.xml")));
     String xml = "";
     String line = reader.readLine();
     while (line != null) {
@@ -53,7 +56,7 @@ public class GroupCreationTests extends TestBase {
   public Iterator<Object[]> validGroupsAsJson() throws IOException {
     List<Object[]> list = new ArrayList<Object[]>();
     System.out.println(new File(".").getAbsoluteFile());
-    try(BufferedReader reader = new BufferedReader(new FileReader(new File("C:\\Tests\\java_pft\\addressbook-web-tests\\src\\test\\resources\\groups.json")))) {
+    try(BufferedReader reader = new BufferedReader(new FileReader(new File("src\\test\\resources\\groups.json")))) {
       String json = "";
       String line = reader.readLine();
       while (line != null) {

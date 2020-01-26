@@ -3,13 +3,15 @@ package ru.stqa.pft.addressbook.tests;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.xstream.XStream;
-import org.testng.annotations.*;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
-import ru.stqa.pft.addressbook.model.GroupData;
 
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -24,7 +26,7 @@ public class ContactCreationTest extends TestBase {
   @DataProvider
   public Iterator<Object[]> validContactsAsCsv() throws IOException {
     List<Object[]> list = new ArrayList<Object[]>();
-    BufferedReader reader = new BufferedReader(new FileReader(new File("C:/Tests/java_pft/addressbook-web-tests/src/test/resources/contacts.csv")));
+    BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contacts.csv")));
     String line = reader.readLine();
     while (line != null) {
       String[] split = line.split(";");
@@ -37,7 +39,7 @@ public class ContactCreationTest extends TestBase {
    @DataProvider
   public Iterator<Object[]> validContactsAsXml() throws IOException {
     List<Object[]> list = new ArrayList<Object[]>();
-    BufferedReader reader = new BufferedReader(new FileReader(new File("C:/Tests/java_pft/addressbook-web-tests/src/test/resources/contacts.xml")));
+    BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contacts.xml")));
     String xml = "";
     String line = reader.readLine();
     while (line != null) {
@@ -53,7 +55,7 @@ public class ContactCreationTest extends TestBase {
   @DataProvider
   public Iterator<Object[]> validGroupsAsJson() throws IOException {
     List<Object[]> list = new ArrayList<Object[]>();
-    try(BufferedReader reader = new BufferedReader(new FileReader(new File("C:/Tests/java_pft/addressbook-web-tests/src/test/resources/contacts.json")))) {
+    try(BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contacts.json")))) {
       String json = "";
       String line = reader.readLine();
       while (line != null) {

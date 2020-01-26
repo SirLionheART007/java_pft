@@ -14,9 +14,7 @@ dependencies {
     implementation 'org.immutables:gson:2.8.3'
 }
 test {
-    useTestNG{
-        suites 'C:/Tests/java_pft/addressbook-web-tests/src/test/resourses/testng-groups.xml'
-    }
+    useTestNG ()
 }
 
 
