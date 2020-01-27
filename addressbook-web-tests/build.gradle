@@ -12,6 +12,7 @@ dependencies {
     implementation 'com.beust:jcommander:1.78'
     implementation 'com.thoughtworks.xstream:xstream:1.4.11.1'
     implementation 'org.immutables:gson:2.8.3'
+    implementation 'com.newrelic.logging:logback:1.0-rc3'
 }
 
 

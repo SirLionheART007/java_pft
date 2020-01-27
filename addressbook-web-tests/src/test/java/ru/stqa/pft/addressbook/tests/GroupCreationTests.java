@@ -4,6 +4,8 @@ package ru.stqa.pft.addressbook.tests;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.xstream.XStream;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
@@ -30,7 +32,7 @@ public class GroupCreationTests extends TestBase {
     String line = reader.readLine();
     while (line != null) {
       String[] split = line.split(";");
-      list.add(new Object[] {new GroupData().withName(split[0]).withHeader(split[1]).withFooter(split[2])});
+      list.add(new Object[]{new GroupData().withName(split[0]).withHeader(split[1]).withFooter(split[2])});
       line = reader.readLine();
     }
     return list.iterator();
@@ -56,7 +58,7 @@ public class GroupCreationTests extends TestBase {
   public Iterator<Object[]> validGroupsAsJson() throws IOException {
     List<Object[]> list = new ArrayList<Object[]>();
     System.out.println(new File(".").getAbsoluteFile());
-    try(BufferedReader reader = new BufferedReader(new FileReader(new File("src\\test\\resources\\groups.json")))) {
+    try (BufferedReader reader = new BufferedReader(new FileReader(new File("src\\test\\resources\\groups.json")))) {
       String json = "";
       String line = reader.readLine();
       while (line != null) {
@@ -64,20 +66,23 @@ public class GroupCreationTests extends TestBase {
         line = reader.readLine();
       }
       Gson gson = new Gson();
-      List<GroupData> groups = gson.fromJson(json, new TypeToken<List<GroupData>>(){}.getType()); //List<GroupData>.class
+      List<GroupData> groups = gson.fromJson(json, new TypeToken<List<GroupData>>() {
+      }.getType()); //List<GroupData>.class
       return groups.stream().map((g) -> new Object[]{g}).collect(Collectors.toList()).iterator();
     }
   }
 
   @Test(dataProvider = "validGroupsAsJson")
   public void testGroupCreation(GroupData group) throws Exception {
-      app.goTo().groupPage("groups");
-      Groups before = app.group().all();
-      app.group().create(group);
-      assertThat(app.group().count(), equalTo(before.size() + 1));
-      Groups after =  app.group().all();
-      assertThat(after, equalTo(
-              before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
+
+
+    app.goTo().groupPage("groups");
+    Groups before = app.group().all();
+    app.group().create(group);
+    assertThat(app.group().count(), equalTo(before.size() + 1));
+    Groups after = app.group().all();
+    assertThat(after, equalTo(
+            before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
   }
 
 }
