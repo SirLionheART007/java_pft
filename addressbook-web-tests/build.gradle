@@ -13,6 +13,7 @@ dependencies {
     implementation 'com.thoughtworks.xstream:xstream:1.4.11.1'
     implementation 'org.immutables:gson:2.8.3'
     implementation 'com.newrelic.logging:logback:1.0-rc3'
+    implementation 'mysql:mysql-connector-java:8.0.19'
 }
 
 
