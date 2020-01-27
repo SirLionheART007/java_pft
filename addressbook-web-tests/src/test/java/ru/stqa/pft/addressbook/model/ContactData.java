@@ -3,40 +3,66 @@ package ru.stqa.pft.addressbook.model;
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.File;
 
 @XStreamAlias("contact")
 @Entity
-@Table(name = "")
+@Table(name = "addressbook")
 
 public class ContactData {
   @Expose
+  @Column(name = "firstname")
   private String firstname;
   private String middlename;
   @Expose
+  @Column(name = "lastname")
   private String lastname;
   private String nickname;
   private String title;
   private String company;
   @Expose
+  @Column(name = "address")
+  @Type(type = "text")
   private String address;
   @Expose
+  @Transient
   private String fullInfo;
+  @Column(name = "home")
+  @Type(type = "text")
   private String home;
+
+  @Column(name = "mobile")
+  @Type(type = "text")
   private String mobile;
+
+  @Column(name = "work")
+  @Type(type = "text")
   private String work;
+  @Transient
   private String allPhones;
+  @Column(name = "email")
+  @Type(type = "text")
   private String email;
+  @Column(name = "email2")
+  @Type(type = "text")
   private String email2;
+  @Column(name = "email3")
+  @Type(type = "text")
   private String email3;
+  @Transient
   private String allEmails;
   @Expose
+  @Transient
   private String group;
-  private File photo;
+  @Column(name = "photo")
+  @Type(type = "text")
+  private String photo;
   @XStreamOmitField
+  @Id
+  @Column(name = "id")
   private int id = Integer.MAX_VALUE;
 
   public ContactData withFirstname(String firstname) {
@@ -122,7 +148,7 @@ public class ContactData {
 
 
   public ContactData withPhoto(File photo) {
-    this.photo = photo;
+    this.photo = photo.getPath();
     return this;
   }
 
@@ -202,7 +228,7 @@ public class ContactData {
   }
 
   public File getPhoto() {
-    return photo;
+    return new File(photo);
   }
 
   public String getFullInfo() {
