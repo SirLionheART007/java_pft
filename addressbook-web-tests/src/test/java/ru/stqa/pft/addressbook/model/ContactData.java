@@ -4,9 +4,14 @@ import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.File;
 
 @XStreamAlias("contact")
+@Entity
+@Table(name = "")
+
 public class ContactData {
   @Expose
   private String firstname;
