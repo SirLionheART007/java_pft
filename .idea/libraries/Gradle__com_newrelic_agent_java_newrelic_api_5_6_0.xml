@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.newrelic.agent.java:newrelic-api:5.6.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.newrelic.agent.java/newrelic-api/5.6.0/dd5eb4297fdc1d8098c4cc9720283a50403c8706/newrelic-api-5.6.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.newrelic.agent.java/newrelic-api/5.6.0/95e0647bcc07522837bd015369a310a0281c251e/newrelic-api-5.6.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

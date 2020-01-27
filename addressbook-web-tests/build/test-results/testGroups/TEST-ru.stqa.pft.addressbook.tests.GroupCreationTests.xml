@@ -1,14 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.stqa.pft.addressbook.tests.GroupCreationTests" tests="5" skipped="3" failures="2" errors="0" timestamp="2020-01-26T20:34:18" hostname="DESKTOP-B85ICVG" time="0.142">
+<testsuite name="ru.stqa.pft.addressbook.tests.GroupCreationTests" tests="5" skipped="3" failures="2" errors="0" timestamp="2020-01-27T17:12:30" hostname="DESKTOP-B85ICVG" time="16.631">
   <properties/>
-  <testcase name="setUp" classname="ru.stqa.pft.addressbook.tests.GroupCreationTests" time="0.009">
-    <failure message="java.io.FileNotFoundException: \src\test\resourses\local.properties (Системе не удается найти указанный путь)" type="java.io.FileNotFoundException">java.io.FileNotFoundException: \src\test\resourses\local.properties (Системе не удается найти указанный путь)
-	at java.io.FileInputStream.open0(Native Method)
-	at java.io.FileInputStream.open(FileInputStream.java:195)
-	at java.io.FileInputStream.&lt;init&gt;(FileInputStream.java:138)
-	at java.io.FileReader.&lt;init&gt;(FileReader.java:72)
-	at ru.stqa.pft.addressbook.appmanager.ApplicationManager.init(ApplicationManager.java:35)
-	at ru.stqa.pft.addressbook.tests.TestBase.setUp(TestBase.java:15)
+  <testcase name="setUp" classname="ru.stqa.pft.addressbook.tests.GroupCreationTests" time="16.387">
+    <failure message="org.openqa.selenium.SessionNotCreatedException: session not created&#10;from chrome not reachable&#10;  (Session info: chrome=79.0.3945.130)&#10;Build info: version: '4.0.0-alpha-3', revision: '8c567de6dc'&#10;System info: host: 'DESKTOP-B85ICVG', ip: '192.168.1.65', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'&#10;Driver info: driver.version: ChromeDriver&#10;remote stacktrace: Backtrace:&#10;&#9;Ordinal0 [0x0083A113+1548563]&#10;&#9;Ordinal0 [0x007BDDA1+1039777]&#10;&#9;Ordinal0 [0x0073E32E+516910]&#10;&#9;Ordinal0 [0x00738012+491538]&#10;&#9;Ordinal0 [0x007386EB+493291]&#10;&#9;Ordinal0 [0x00739855+497749]&#10;&#9;Ordinal0 [0x00735885+481413]&#10;&#9;Ordinal0 [0x0073F0D0+520400]&#10;&#9;Ordinal0 [0x006EC030+180272]&#10;&#9;Ordinal0 [0x006EB59D+177565]&#10;&#9;Ordinal0 [0x006E95FB+169467]&#10;&#9;Ordinal0 [0x006D160A+71178]&#10;&#9;Ordinal0 [0x006D2690+75408]&#10;&#9;Ordinal0 [0x006D2629+75305]&#10;&#9;Ordinal0 [0x007D71B7+1143223]&#10;&#9;GetHandleVerifier [0x008D2B46+507814]&#10;&#9;GetHandleVerifier [0x008D2864+507076]&#10;&#9;GetHandleVerifier [0x008D9F47+537511]&#10;&#9;GetHandleVerifier [0x008D3402+510050]&#10;&#9;Ordinal0 [0x007CF29C+1110684]&#10;&#9;Ordinal0 [0x007D938B+1151883]&#10;&#9;Ordinal0 [0x007D94F3+1152243]&#10;&#9;Ordinal0 [0x007D83F5+1147893]&#10;&#9;BaseThreadInitThunk [0x77606359+25]&#10;&#9;RtlGetAppContainerNamedObjectPath [0x779A7B74+228]&#10;&#9;RtlGetAppContainerNamedObjectPath [0x779A7B44+180]&#10;" type="org.openqa.selenium.SessionNotCreatedException">org.openqa.selenium.SessionNotCreatedException: session not created
+from chrome not reachable
+  (Session info: chrome=79.0.3945.130)
+Build info: version: '4.0.0-alpha-3', revision: '8c567de6dc'
+System info: host: 'DESKTOP-B85ICVG', ip: '192.168.1.65', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
+Driver info: driver.version: ChromeDriver
+remote stacktrace: Backtrace:
+	Ordinal0 [0x0083A113+1548563]
+	Ordinal0 [0x007BDDA1+1039777]
+	Ordinal0 [0x0073E32E+516910]
+	Ordinal0 [0x00738012+491538]
+	Ordinal0 [0x007386EB+493291]
+	Ordinal0 [0x00739855+497749]
+	Ordinal0 [0x00735885+481413]
+	Ordinal0 [0x0073F0D0+520400]
+	Ordinal0 [0x006EC030+180272]
+	Ordinal0 [0x006EB59D+177565]
+	Ordinal0 [0x006E95FB+169467]
+	Ordinal0 [0x006D160A+71178]
+	Ordinal0 [0x006D2690+75408]
+	Ordinal0 [0x006D2629+75305]
+	Ordinal0 [0x007D71B7+1143223]
+	GetHandleVerifier [0x008D2B46+507814]
+	GetHandleVerifier [0x008D2864+507076]
+	GetHandleVerifier [0x008D9F47+537511]
+	GetHandleVerifier [0x008D3402+510050]
+	Ordinal0 [0x007CF29C+1110684]
+	Ordinal0 [0x007D938B+1151883]
+	Ordinal0 [0x007D94F3+1152243]
+	Ordinal0 [0x007D83F5+1147893]
+	BaseThreadInitThunk [0x77606359+25]
+	RtlGetAppContainerNamedObjectPath [0x779A7B74+228]
+	RtlGetAppContainerNamedObjectPath [0x779A7B44+180]
+
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.W3CHandshakeResponse.lambda$errorHandler$0(W3CHandshakeResponse.java:62)
+	at org.openqa.selenium.remote.HandshakeResponse.lambda$getResponseFunction$0(HandshakeResponse.java:30)
+	at org.openqa.selenium.remote.ProtocolHandshake.lambda$createSession$1(ProtocolHandshake.java:127)
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+	at java.util.Spliterators$ArraySpliterator.tryAdvance(Spliterators.java:958)
+	at java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:126)
+	at java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:499)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:486)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472)
+	at java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:152)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:464)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:129)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:75)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:139)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:576)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:210)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:130)
+	at org.openqa.selenium.chromium.ChromiumDriver.&lt;init&gt;(ChromiumDriver.java:75)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:163)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:150)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:105)
+	at ru.stqa.pft.addressbook.appmanager.ApplicationManager.init(ApplicationManager.java:40)
+	at ru.stqa.pft.addressbook.tests.TestBase.setUp(TestBase.java:25)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -64,10 +120,10 @@
   <testcase name="testGroupCreation" classname="ru.stqa.pft.addressbook.tests.GroupCreationTests" time="0.0">
     <skipped/>
   </testcase>
-  <testcase name="tearDown" classname="ru.stqa.pft.addressbook.tests.GroupCreationTests" time="0.002">
+  <testcase name="tearDown" classname="ru.stqa.pft.addressbook.tests.GroupCreationTests" time="0.001">
     <failure message="java.lang.NullPointerException" type="java.lang.NullPointerException">java.lang.NullPointerException
-	at ru.stqa.pft.addressbook.appmanager.ApplicationManager.stop(ApplicationManager.java:54)
-	at ru.stqa.pft.addressbook.tests.TestBase.tearDown(TestBase.java:20)
+	at ru.stqa.pft.addressbook.appmanager.ApplicationManager.stop(ApplicationManager.java:55)
+	at ru.stqa.pft.addressbook.tests.TestBase.tearDown(TestBase.java:30)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

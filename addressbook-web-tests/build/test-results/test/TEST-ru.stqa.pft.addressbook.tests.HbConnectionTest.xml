@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.stqa.pft.addressbook.tests.HbConnectionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-01-27T19:34:20" hostname="DESKTOP-B85ICVG" time="0.456">
+  <properties/>
+  <testcase name="testHbConnection" classname="ru.stqa.pft.addressbook.tests.HbConnectionTest" time="0.456"/>
+  <system-out><![CDATA[22:34:18.567 [Test worker] INFO  org.hibernate.Version - HHH000412: Hibernate Core {6.0.0.Alpha4}
+22:34:19.124 [Test worker] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+22:34:19.351 [Test worker] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+22:34:19.360 [Test worker] INFO  o.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/addressbook?serverTimezone=UTC]
+22:34:19.360 [Test worker] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=root, password=}
+22:34:19.361 [Test worker] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+22:34:19.365 [Test worker] INFO  o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 1 (min=1)
+22:34:19.561 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+22:34:20.551 [Test worker] INFO  org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1b2c01ee] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+22:34:20.668 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Hibernate: select c1_0.id, c1_0.address, c1_0.company, c1_0.email, c1_0.email2, c1_0.email3, c1_0.firstname, c1_0.home, c1_0.lastname, c1_0.middlename, c1_0.mobile, c1_0.nickname, c1_0.title, c1_0.work from addressbook as c1_0
+ContactData{firstname='Test', lastname='Tester', id=116}
+ContactData{firstname='Test 0', lastname='Tester 0', id=120}
+ContactData{firstname='Test 1', lastname='Tester 1', id=121}
+ContactData{firstname='Test 2', lastname='Tester 2', id=151}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -14,6 +14,7 @@ import java.util.List;
 
 public class HbConnectionTest {
 
+
   private SessionFactory sessionFactory;
 
   @BeforeClass

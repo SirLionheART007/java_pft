@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.newrelic.logging:logback:1.0-rc3">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.newrelic.logging/logback/1.0-rc3/2fc55baf7ea2cbecb933ec2505cb927c1b83c8a/logback-1.0-rc3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.newrelic.logging/logback/1.0-rc3/ae031527cbec53a20a90b2ad0a115b467fa53a2c/logback-1.0-rc3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

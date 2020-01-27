@@ -33,22 +33,24 @@ public class GroupData {
   @Type(type = "text")
   private String footer;
 
-  public int getId() {
-    return id;
-  }
-
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
+    if (!(o instanceof GroupData)) return false;
     GroupData groupData = (GroupData) o;
-    return id == groupData.id &&
-            Objects.equals(name, groupData.name);
+    return getId() == groupData.getId() &&
+            Objects.equals(getName(), groupData.getName()) &&
+            Objects.equals(getHeader(), groupData.getHeader()) &&
+            Objects.equals(getFooter(), groupData.getFooter());
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name);
+    return Objects.hash(getId(), getName(), getHeader(), getFooter());
+  }
+
+  public int getId() {
+    return id;
   }
 
   @Override
