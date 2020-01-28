@@ -7,6 +7,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.Groups;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -30,7 +31,7 @@ public class ContactCreationTest extends TestBase {
     String line = reader.readLine();
     while (line != null) {
       String[] split = line.split(";");
-      list.add(new Object[] {new ContactData().withFirstname(split[0]).withLastname(split[1]).withAddress(split[2]).withGroup(split[3])});
+      list.add(new Object[] {new ContactData().withFirstname(split[0]).withLastname(split[1]).withAddress(split[2])});
       line = reader.readLine();
     }
     return list.iterator();
@@ -71,6 +72,7 @@ public class ContactCreationTest extends TestBase {
   @Test(dataProvider = "validGroupsAsJson")
   public void testContactCreation(ContactData contact) throws Exception {
 
+    Groups groups = app.db().groups();
     Contacts before = app.db().contacts();
     System.out.println(app.db().contacts().size());
     File photo = new File("src/test/resources/IMG_3708.JPG");

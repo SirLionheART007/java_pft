@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.456s</div>
+<div class="counter">0.323s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">testHbConnection</td>
-<td class="success">0.456s</td>
+<td class="success">0.323s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -87,21 +87,29 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>22:34:18.567 [Test worker] INFO  org.hibernate.Version - HHH000412: Hibernate Core {6.0.0.Alpha4}
-22:34:19.124 [Test worker] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-22:34:19.351 [Test worker] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-22:34:19.360 [Test worker] INFO  o.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/addressbook?serverTimezone=UTC]
-22:34:19.360 [Test worker] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=root, password=}
-22:34:19.361 [Test worker] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
-22:34:19.365 [Test worker] INFO  o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 1 (min=1)
-22:34:19.561 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-22:34:20.551 [Test worker] INFO  org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1b2c01ee] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-22:34:20.668 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-Hibernate: select c1_0.id, c1_0.address, c1_0.company, c1_0.email, c1_0.email2, c1_0.email3, c1_0.firstname, c1_0.home, c1_0.lastname, c1_0.middlename, c1_0.mobile, c1_0.nickname, c1_0.title, c1_0.work from addressbook as c1_0
-ContactData{firstname='Test', lastname='Tester', id=116}
-ContactData{firstname='Test 0', lastname='Tester 0', id=120}
+<pre>22:23:41.977 [Test worker] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.4.10.Final}
+22:23:42.445 [Test worker] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+22:23:42.626 [Test worker] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+22:23:42.633 [Test worker] INFO  o.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/addressbook?serverTimezone=UTC]
+22:23:42.634 [Test worker] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=root, password=}
+22:23:42.634 [Test worker] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+22:23:42.640 [Test worker] INFO  o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 1 (min=1)
+22:23:42.823 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+22:23:43.875 [Test worker] INFO  org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@7da78212] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+22:23:43.983 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Hibernate: select contactdat0_.id as id1_1_, contactdat0_.address as address2_1_, contactdat0_.company as company3_1_, contactdat0_.email as email4_1_, contactdat0_.email2 as email5_1_, contactdat0_.email3 as email6_1_, contactdat0_.firstname as firstnam7_1_, contactdat0_.home as home8_1_, contactdat0_.lastname as lastname9_1_, contactdat0_.middlename as middlen10_1_, contactdat0_.mobile as mobile11_1_, contactdat0_.nickname as nicknam12_1_, contactdat0_.title as title13_1_, contactdat0_.work as work14_1_ from addressbook contactdat0_ where deprecated='0000-00-00'
+Hibernate: select groups0_.id as id1_0_0_, groups0_.group_id as group_id2_0_0_, groupdata1_.group_id as group_id1_2_1_, groupdata1_.group_footer as group_fo2_2_1_, groupdata1_.group_header as group_he3_2_1_, groupdata1_.group_name as group_na4_2_1_ from address_in_groups groups0_ inner join group_list groupdata1_ on groups0_.group_id=groupdata1_.group_id where groups0_.id=?
+Hibernate: select groups0_.id as id1_0_0_, groups0_.group_id as group_id2_0_0_, groupdata1_.group_id as group_id1_2_1_, groupdata1_.group_footer as group_fo2_2_1_, groupdata1_.group_header as group_he3_2_1_, groupdata1_.group_name as group_na4_2_1_ from address_in_groups groups0_ inner join group_list groupdata1_ on groups0_.group_id=groupdata1_.group_id where groups0_.id=?
+Hibernate: select groups0_.id as id1_0_0_, groups0_.group_id as group_id2_0_0_, groupdata1_.group_id as group_id1_2_1_, groupdata1_.group_footer as group_fo2_2_1_, groupdata1_.group_header as group_he3_2_1_, groupdata1_.group_name as group_na4_2_1_ from address_in_groups groups0_ inner join group_list groupdata1_ on groups0_.group_id=groupdata1_.group_id where groups0_.id=?
+Hibernate: select groups0_.id as id1_0_0_, groups0_.group_id as group_id2_0_0_, groupdata1_.group_id as group_id1_2_1_, groupdata1_.group_footer as group_fo2_2_1_, groupdata1_.group_header as group_he3_2_1_, groupdata1_.group_name as group_na4_2_1_ from address_in_groups groups0_ inner join group_list groupdata1_ on groups0_.group_id=groupdata1_.group_id where groups0_.id=?
 ContactData{firstname='Test 1', lastname='Tester 1', id=121}
-ContactData{firstname='Test 2', lastname='Tester 2', id=151}
+[GroupData{id=34, name='test1'}]
+ContactData{firstname='Test', lastname='Tester', id=142}
+[GroupData{id=34, name='test1'}]
+ContactData{firstname='Test 0', lastname='Tester 0', id=185}
+[GroupData{id=34, name='test1'}]
+ContactData{firstname='Test 2', lastname='Tester 2', id=190}
+[GroupData{id=34, name='test1'}, GroupData{id=144, name='test 2'}]
 </pre>
 </span>
 </div>
@@ -113,7 +121,7 @@ ContactData{firstname='Test 2', lastname='Tester 2', id=151}
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.0.1</a> at 27.01.2020 22:34:21</p>
+<a href="http://www.gradle.org">Gradle 6.0.1</a> at 28.01.2020 22:23:44</p>
 </div>
 </div>
 </body>
