@@ -176,7 +176,6 @@ public class ContactHelper extends HelperBase {
   }
 
   private void addTo() {
-    new Select(wd.findElement(By.name("to_group")));
     click(By.name("add"));
   }
 }

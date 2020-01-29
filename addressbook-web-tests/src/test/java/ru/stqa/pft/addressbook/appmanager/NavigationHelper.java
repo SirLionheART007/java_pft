@@ -2,6 +2,7 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class NavigationHelper extends HelperBase {
 
@@ -16,6 +17,16 @@ public class NavigationHelper extends HelperBase {
       return;
     }
     click(By.linkText(groups));
+  }
+
+  public void homePage() {
+    Select select = new Select(wd.findElement(By.xpath("//*[@id=\"right\"]/select")));
+    System.out.println(select.getFirstSelectedOption().getText());
+    if (isElementPresent(By.id("maintable"))
+            && select.getFirstSelectedOption().getText().equals("[all]")) {
+      return;
+    }
+    click(By.linkText("home"));
   }
 }
 
