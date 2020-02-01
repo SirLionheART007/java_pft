@@ -30,6 +30,10 @@ public class NavigationHelper extends HelperBase {
       return;
     }
     click(By.linkText("home"));
+    if (new Select(wd.findElement(By.xpath("//*[@id=\"right\"]/select"))).getFirstSelectedOption().getText() != "[all]") {
+      Select select = new Select(wd.findElement(By.name("group")));
+      select.selectByVisibleText("[all]");
+    }
   }
 
   public void contactInGroupPage(GroupData group) {

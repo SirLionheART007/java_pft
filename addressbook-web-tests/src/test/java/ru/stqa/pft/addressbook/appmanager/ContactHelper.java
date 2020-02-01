@@ -171,7 +171,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public ContactData addInGroup(ContactData contact, GroupData group) {
-    selectContactById(contact.getId());
+    selectContactForGroup(contact.getId());
     addTo(group, group.getId());
     return new ContactData().inGroup(group).withId(contact.getId()).withFirstname(contact.getFirstname()).withLastname(contact.getLastname());
   }
@@ -181,6 +181,21 @@ public class ContactHelper extends HelperBase {
     select.selectByValue(String.valueOf(group.getId()));
     click(By.name("add"));
     return new ContactData().inGroup(group);
+  }
+
+
+ public void deleteFromGroup(ContactData contact) {
+    Select select = new Select(wd.findElement(By.name("group")));
+    select.selectByVisibleText(contact.getGroups().iterator().next().getName());
+    selectContactForGroup(contact.getId());
+    click(By.name("remove"));
+  }
+
+  private void selectContactForGroup(int id) {
+    WebElement checkbox = wd.findElement(By.cssSelector("input[value='" + id + "']"));
+    WebElement row = checkbox.findElement(By.xpath("./../.."));
+    List<WebElement> cells = row.findElements(By.tagName("td"));
+    cells.get(0).click();
   }
 
 
