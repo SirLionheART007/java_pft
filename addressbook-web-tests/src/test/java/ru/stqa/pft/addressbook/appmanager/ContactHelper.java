@@ -170,12 +170,18 @@ public class ContactHelper extends HelperBase {
     wd.findElement(By.xpath(String.format("//input[@value='%s']/../../td[8]/a",id))).click();
   }
 
-  public void addInGroup(ContactData contact) {
+  public ContactData addInGroup(ContactData contact, GroupData group) {
     selectContactById(contact.getId());
-    addTo();
+    addTo(group, group.getId());
+    return new ContactData().inGroup(group).withId(contact.getId()).withFirstname(contact.getFirstname()).withLastname(contact.getLastname());
   }
 
-  private void addTo() {
+  private ContactData addTo(GroupData group, int id) {
+    Select select = new Select(wd.findElement(By.name("to_group")));
+    select.selectByValue(String.valueOf(group.getId()));
     click(By.name("add"));
+    return new ContactData().inGroup(group);
   }
+
+
 }

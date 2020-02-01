@@ -7,6 +7,9 @@ import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 public class AddContactInGroupTests extends TestBase{
 
   @BeforeMethod
@@ -24,9 +27,19 @@ public class AddContactInGroupTests extends TestBase{
   public void testAddContactInGroup() {
     app.goTo().homePage();
     Groups groups = app.db().groups();
+    GroupData group = groups.iterator().next();
     Contacts before = app.db().contacts();
     ContactData contact = before.iterator().next();
-    app.contact().addInGroup(contact);
+    int id = contact.getId();
+    app.contact().addInGroup(contact, group);
+    app.goTo().homePage();
+    assertThat(app.contact().count(), equalTo(before.size()));
+    assertThat(contact.withId(id), equalTo(contact.inGroup(group)));
+    Contacts after = app.db().contacts();
+    assertThat(after, equalTo(before));
+
   }
+
+
 
 }
