@@ -20,9 +20,9 @@ public class ApplicationManager {
   private WebDriver wd;
 
 
-
   private String browser;
   private RegistrationHelper registrationHelper;
+  private FtpHelper ftp;
 
 
   public ApplicationManager(String browser) {
@@ -42,11 +42,11 @@ public class ApplicationManager {
     }
   }
 
-public HttpSession newSession() {
+  public HttpSession newSession() {
     return new HttpSession(this);
-}
+  }
 
-  public String getProperty (String key) {
+  public String getProperty(String key) {
     return properties.getProperty(key);
   }
 
@@ -57,8 +57,15 @@ public HttpSession newSession() {
     return registrationHelper;
   }
 
+  public FtpHelper ftp() {
+    if (ftp == null) {
+      ftp = new FtpHelper(this);
+    }
+    return ftp;
+  }
+
   public WebDriver getDriver() {
-    if (wd == null){
+    if (wd == null) {
       if (browser.equals(BrowserType.FIREFOX)) {
         wd = new FirefoxDriver();
       } else if (browser.equals(BrowserType.CHROME)) {
