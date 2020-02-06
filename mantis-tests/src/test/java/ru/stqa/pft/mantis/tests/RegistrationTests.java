@@ -14,10 +14,11 @@ import static org.testng.Assert.assertTrue;
 
 public class RegistrationTests extends TestBase {
 
-  //@BeforeMethod
+  @BeforeMethod
   public void startMailServer() {
     app.mail().start();
   }
+
 
   @Test
   public void testRegistration() throws IOException, MessagingException {
