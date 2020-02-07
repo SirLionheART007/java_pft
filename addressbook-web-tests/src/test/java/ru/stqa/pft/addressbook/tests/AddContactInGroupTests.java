@@ -27,19 +27,25 @@ public class AddContactInGroupTests extends TestBase{
   public void testAddContactInGroup() {
     app.goTo().homePage();
     Groups groups = app.db().groups();
-    GroupData group = groups.iterator().next();
-    Contacts before = app.db().contacts();
-    ContactData contact = before.iterator().next();
-    int id = contact.getId();
-    app.contact().addInGroup(contact, group);
-    app.goTo().homePage();
-    assertThat(app.contact().count(), equalTo(before.size()));
-    assertThat(contact.withId(id), equalTo(contact.inGroup(group)));
-    Contacts after = app.db().contacts();
-    assertThat(after, equalTo(before));
-
+    Contacts contacts = app.db().contacts();
+    for (ContactData contact : contacts) {
+      int id = contact.getId();
+      Groups beforeGroups = contact.getGroups();
+      for (GroupData group : groups) {
+        if (contact.getGroups().size() == 0) {
+          app.contact().addInGroup(contact, group);
+          app.goTo().homePage();
+          assertThat(app.contact().count(), equalTo(contacts.size()));
+          assertThat(contact.withId(id), equalTo(contact.inGroup(group)));
+          Contacts after = app.db().contacts();
+          Groups afterGroups = contact.getGroups();
+          assertThat(afterGroups, equalTo((beforeGroups).withAdded(group)));
+        }
+        group = groups.iterator().next();
+      }
+    contact = contacts.iterator().next();
   }
-
+}
 
 
 }

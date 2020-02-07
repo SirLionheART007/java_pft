@@ -184,10 +184,10 @@ public class ContactHelper extends HelperBase {
   }
 
 
- public void deleteFromGroup(ContactData contact) {
-    Select select = new Select(wd.findElement(By.name("group")));
-    select.selectByVisibleText(contact.getGroups().iterator().next().getName());
-    selectContactForGroup(contact.getId());
+  public void deleteFromGroup(ContactData contact, GroupData group) {
+    String s = String.valueOf(group.getId());
+    new Select(wd.findElement(By.name("group"))).selectByValue(s);
+    selectContactById(contact.getId());
     click(By.name("remove"));
   }
 
