@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.stqa.pft.addressbook.tests.ContactInfoTests" tests="1" skipped="1" failures="0" errors="0" timestamp="2020-02-07T00:07:35" hostname="DESKTOP-B85ICVG" time="0.0">
+  <properties/>
+  <testcase name="testContactInfo" classname="ru.stqa.pft.addressbook.tests.ContactInfoTests" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

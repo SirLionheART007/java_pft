@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.stqa.pft.addressbook.tests.GroupCreationTests" tests="3" skipped="3" failures="0" errors="0" timestamp="2020-02-07T00:07:41" hostname="DESKTOP-B85ICVG" time="0.002">
+  <properties/>
+  <testcase name="testGroupCreation" classname="ru.stqa.pft.addressbook.tests.GroupCreationTests" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testGroupCreation" classname="ru.stqa.pft.addressbook.tests.GroupCreationTests" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testGroupCreation" classname="ru.stqa.pft.addressbook.tests.GroupCreationTests" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[C:\Tests\java_pft\addressbook-web-tests\.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.stqa.pft.addressbook.tests.GroupModificationTests" tests="3" skipped="1" failures="2" errors="0" timestamp="2020-02-06T23:55:11" hostname="DESKTOP-B85ICVG" time="2.152">
+<testsuite name="ru.stqa.pft.addressbook.tests.GroupModificationTests" tests="3" skipped="1" failures="2" errors="0" timestamp="2020-02-07T00:33:49" hostname="DESKTOP-B85ICVG" time="2.161">
   <properties/>
-  <testcase name="setUp" classname="ru.stqa.pft.addressbook.tests.GroupModificationTests" time="2.119">
+  <testcase name="setUp" classname="ru.stqa.pft.addressbook.tests.GroupModificationTests" time="2.131">
     <failure message="java.net.MalformedURLException" type="java.net.MalformedURLException">java.net.MalformedURLException
 	at java.net.URL.&lt;init&gt;(URL.java:644)
 	at java.net.URL.&lt;init&gt;(URL.java:507)
 	at java.net.URL.&lt;init&gt;(URL.java:456)
-	at ru.stqa.pft.addressbook.appmanager.ApplicationManager.init(ApplicationManager.java:56)
+	at ru.stqa.pft.addressbook.appmanager.ApplicationManager.init(ApplicationManager.java:57)
 	at ru.stqa.pft.addressbook.tests.TestBase.setUp(TestBase.java:35)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -60,9 +60,9 @@ Caused by: java.lang.NullPointerException
   <testcase name="testGroupModification" classname="ru.stqa.pft.addressbook.tests.GroupModificationTests" time="0.0">
     <skipped/>
   </testcase>
-  <testcase name="tearDown" classname="ru.stqa.pft.addressbook.tests.GroupModificationTests" time="0.001">
+  <testcase name="tearDown" classname="ru.stqa.pft.addressbook.tests.GroupModificationTests" time="0.0">
     <failure message="java.lang.NullPointerException" type="java.lang.NullPointerException">java.lang.NullPointerException
-	at ru.stqa.pft.addressbook.appmanager.ApplicationManager.stop(ApplicationManager.java:71)
+	at ru.stqa.pft.addressbook.appmanager.ApplicationManager.stop(ApplicationManager.java:69)
 	at ru.stqa.pft.addressbook.tests.TestBase.tearDown(TestBase.java:40)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
