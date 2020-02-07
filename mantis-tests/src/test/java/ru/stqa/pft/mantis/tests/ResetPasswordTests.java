@@ -30,8 +30,8 @@ public class ResetPasswordTests extends TestBase {
     String password = "password123";
     Users before = app.db().users();
     UserData user = before.iterator().next();
-    if (user.getUsername().equals("administrator")) {
-      return;
+    while (user.getUsername().equals("administrator")) {
+      user = before.iterator().next();
     }
     app.admin().selectUser(user.getUsername());
     app.admin().resetPassword();
