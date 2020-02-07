@@ -38,26 +38,25 @@ public class ApplicationManager {
   }
 
   public void init() throws IOException {
-    String target = System.getProperty("target", "local");
+    String target = System.getProperty("target", "remote");
     properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
-
     dbHelper = new DbHelper();
-
+    System.out.println(properties.getProperty("selenium.server"));
     if ("".equals(properties.getProperty("selenium.server"))) {
-      if (Objects.equals(browser, BrowserType.FIREFOX)) {
-        wd = new FirefoxDriver();
-      } else if (Objects.equals(browser, BrowserType.CHROME)) {
-        wd = new ChromeDriver();
-      } else if (Objects.equals(browser, BrowserType.IE)) {
-        wd = new InternetExplorerDriver();
-      }
-    } else {
+    if (Objects.equals(browser, BrowserType.FIREFOX)) {
+      wd = new FirefoxDriver();
+    } else if (Objects.equals(browser, BrowserType.CHROME)) {
+      wd = new ChromeDriver();
+    } else if (Objects.equals(browser, BrowserType.IE)) {
+      wd = new InternetExplorerDriver();
+    }
+    }else {
       DesiredCapabilities capabilites = new DesiredCapabilities();
       capabilites.setBrowserName(browser);
       wd = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilites);
     }
     wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-    wd.get(properties.getProperty("web.baseUrl"));
+    wd.get(properties.getProperty("web.baseURL"));
     contactHelper = new ContactHelper(wd);
     groupHelper = new GroupHelper(wd);
     navigationHelper = new NavigationHelper(wd);
